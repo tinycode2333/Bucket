@@ -2,7 +2,12 @@ var webpack = require('webpack');
 var HtmlWebpackPlugin = require('html-webpack-plugin');
 
 module.exports = {
-  entry: __dirname + "/client/main.js",
+  entry: {
+    main: __dirname + "/client/main.js",
+    adm: __dirname + "/client/adm.js",
+    vendors: ['jquery']
+  },
+
   output: {
     path: __dirname + "/build",
     filename: "[name].js"
@@ -42,9 +47,25 @@ module.exports = {
   },
 
   plugins: [
+    new webpack.optimize.UglifyJsPlugin({minimize: true}),
+
+    new webpack.optimize.CommonsChunkPlugin({name: 'vendors', filename: 'vendors.js'}),
+
     new HtmlWebpackPlugin({
-      // template: __dirname + "/client/tmpl/index.tmpl.html"
-      title: 'My first react app'
+      title: 'Hello index',
+      template: __dirname + "/client/tmpl/main.tmpl.html",
+      filename: 'index.html',
+      chunks: ['main', 'vendors'],
+      inject: 'body'
+    }),
+
+    new HtmlWebpackPlugin({
+      title: 'Hello adm',
+      template: __dirname + "/client/tmpl/adm.tmpl.html",
+      filename: 'adm.html',
+      chunks: ['adm', 'vendors'],
+      inject: 'body'
     })
+
   ]
 }
