@@ -8,7 +8,6 @@ class App extends React.Component {
       <div>
         <h1>heiheihei</h1>
         {this.props.children}
-
       </div>
     );
   }
