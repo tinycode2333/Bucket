@@ -1,0 +1,13 @@
+/*
+**为以后改css modules 留用
+*/
+footer {
+    height: 80px;
+    background-color: #454545;
+}
+
+.copyright {
+    text-align: center;
+    line-height: 80px;
+    color: white;
+}
