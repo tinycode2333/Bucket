@@ -5,7 +5,7 @@ class Home extends React.Component {
   render() {
     return (
       <div className={styles.homeBody}>
-        Welcome to 惊悚乐园
+        {/*Welcome to 惊悚乐园*/}
       </div>
     );
   }

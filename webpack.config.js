@@ -35,6 +35,10 @@ module.exports = {
         loader: 'babel-loader'
       },
       {
+        test: /\.(jpg|png|gif|svg)$/,
+        loader: 'url-loader?limit=8192&name=img/[name].[ext]'
+      },
+      {
         test: /\.scss$/,
         loaders: ['style-loader', 'css-loader', 'sass-loader']
       },
