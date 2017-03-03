@@ -1,0 +1,7 @@
+.register {
+    width: 800px;
+    margin: 90px auto;
+}
+.register label {
+    display: block;
+}

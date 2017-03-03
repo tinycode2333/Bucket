@@ -4,7 +4,6 @@ import HeadStore from '../stores/HeadStore'
 import HeadActions from '../actions/HeadActions';
 import classNames from 'classnames';
 import styles from './Head.css';
-import '../../node_modules/bootstrap/scss/bootstrap.scss';
 
 class Head extends React.Component {
 //   constructor(props) {

@@ -38,10 +38,10 @@ module.exports = {
         test: /\.(jpg|png|gif|svg)$/,
         loader: 'url-loader?limit=8192&name=img/[name].[ext]'
       },
-      {
-        test: /\.scss$/,
-        loaders: ['style-loader', 'css-loader', 'sass-loader']
-      },
+      // {
+      //   test: /\.scss$/,
+      //   loaders: ['style-loader', 'css-loader', 'sass-loader']
+      // },
       {
         test: /\.css$/,
         loader: 'style-loader!css-loader?modules!postcss-loader'
@@ -50,7 +50,7 @@ module.exports = {
   },
 
   resolve: {
-      extensions: [ '.js', '.jsx']
+      extensions: [ '', '.js', '.jsx']
   },
 
   plugins: [
