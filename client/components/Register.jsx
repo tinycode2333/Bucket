@@ -1,21 +1,23 @@
 import React, {Component} from 'react';
+import RegisterStore from '../stores/RegisterStore';
+import RegisterActions from '../actions/RegisterActions'
 import classNames from 'classnames';
 import styles from './Register.css';
 
 class Register extends Component {
     constructor(props, context) {
         super(props, context);
-        this.state = {};
+        this.state = RegisterStore.getState();
         this.onChange = this.onChange.bind(this);
     }
 
-    // componentDidMount() {
-    //     RegisterStore.listen(this.onChange);
-    // }
+    componentDidMount() {
+        RegisterStore.listen(this.onChange);
+    }
 
-    // componentWillUnmount() {
-    //     RegisterStore.unlisten(this.onChange);
-    // }
+    componentWillUnmount() {
+        RegisterStore.unlisten(this.onChange);
+    }
 
     onChange(state) {
         this.setState(state);
@@ -27,34 +29,26 @@ class Register extends Component {
         var name = this.state.name;
         var password = this.state.password;
         var password2 = this.state.password2;
-        console.log(this.state.name);
-        console.log(this.state);
-        console.log(password2);
+
         if (!name) {
-            // AddCharacterActions.invalidName();
+            RegisterActions.invalidName();
             this.refs.nameTextField.focus();
-            this.state.helpBlock = "plase input the username";
         }
 
         if (!password || !password2) {
-            // AddCharacterActions.invalidGender();
-            // this.state.helpBlock = "plase input your password";
+            RegisterActions.invalidPassword();
+        } else if (password != password2) {
+            RegisterActions.invalidSamePassword();
         }
 
-        if (password != password2) {
-            // AddCharacterActions.invalidGender();
-            this.state.helpBlock = "两次密码不一致（别问我问什么写中文）";
-        }
+       
         
         if (name && password && password == password2) {
-            // AddCharacterActions.addCharacter(name, gender);
             this.state.helpBlock = "success";
         }
-        this.setState(this.state);
     }
     
     render() {
-        console.log(this.state);
         return (
             <div className={styles.register}>
                 <div className='panel panel-info'>
@@ -63,15 +57,15 @@ class Register extends Component {
                         <form onSubmit={this.handleSubmit.bind(this)}>
                             <div className='form-group'>
                                 <label >Name</label>
-                                <input type='text' ref='nameTextField' value={this.state.name} autoFocus/>
+                                <input type='text' ref='nameTextField' value={this.state.name} onChange={RegisterActions.updateName} autoFocus/>
                             </div>
                             <div className='form-group'>
                                 <label >Password</label>
-                                <input type='password' ref='passwordTextField' value={this.state.password} autoFocus/>
+                                <input type='password'  value={this.state.password} onChange={RegisterActions.updatePassword}/>
                             </div>
                             <div className='form-group'>
                                 <label >Password Again</label>
-                                <input type='password' ref='passwordTextField' value={this.state.password2} autoFocus/>
+                                <input type='password'  value={this.state.password2} onChange={RegisterActions.updatePassword2}/>
                             </div>
                             <span className='help-block'>{this.state.helpBlock}</span>
                             <button type='submit' className='btn btn-primary'>Submit</button>
