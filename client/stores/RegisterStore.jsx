@@ -33,6 +33,11 @@ class RegisterStore {
         this.helpBlock = '';
     }
 
+    onUpdateAvatar(event) {
+        this.avatar = event.target.value;
+        this.helpBlock = '头像上传成功';
+    }
+
     onInvalidName() {
         this.helpBlock = 'plase input the username';
     }
@@ -43,6 +48,10 @@ class RegisterStore {
 
     onInvalidSamePassword() {
         this.helpBlock = "两次密码不一致（别问我问什么写中文）";
+    }
+
+    onInvalidAvatar() {
+        this.helpBlock = "你头像呢";
     }
 
 }

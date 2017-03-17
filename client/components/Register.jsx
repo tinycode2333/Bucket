@@ -29,21 +29,21 @@ class Register extends Component {
         var name = this.state.name;
         var password = this.state.password;
         var password2 = this.state.password2;
+        var avatar = this.state.avatar;
 
         if (!name) {
             RegisterActions.invalidName();
             this.refs.nameTextField.focus();
-        }
-
-        if (!password || !password2) {
+        } else if (!password || !password2) {
             RegisterActions.invalidPassword();
         } else if (password != password2) {
             RegisterActions.invalidSamePassword();
+        } else if (!avatar) {
+            RegisterActions.invalidAvatar();
         }
 
-       
-        
-        if (name && password && password == password2) {
+        if (name && password && password == password2 && avatar) {
+            RegisterActions.addUser(name, password, password2, avatar);
             this.state.helpBlock = "success";
         }
     }
@@ -54,18 +54,22 @@ class Register extends Component {
                 <div className='panel panel-info'>
                     <div className='panel-heading'>注册用户</div>
                     <div className='panel-body'>
-                        <form onSubmit={this.handleSubmit.bind(this)}>
-                            <div className='form-group'>
+                        <form onSubmit={this.handleSubmit.bind(this)} enctype="multipart/form-data" >
+                            <div className='field required'>
                                 <label >Name</label>
                                 <input type='text' ref='nameTextField' value={this.state.name} onChange={RegisterActions.updateName} autoFocus/>
                             </div>
-                            <div className='form-group'>
+                            <div className='field required'>
                                 <label >Password</label>
                                 <input type='password'  value={this.state.password} onChange={RegisterActions.updatePassword}/>
                             </div>
-                            <div className='form-group'>
+                            <div className='field required'>
                                 <label >Password Again</label>
                                 <input type='password'  value={this.state.password2} onChange={RegisterActions.updatePassword2}/>
+                            </div>
+                             <div className='field required'>
+                                <label >上传头像</label>
+                                <input type='file'  value={this.state.avatar} onChange={RegisterActions.updateAvatar}/>
                             </div>
                             <span className='help-block'>{this.state.helpBlock}</span>
                             <button type='submit' className='btn btn-primary'>Submit</button>

@@ -9,21 +9,24 @@ class RegisterActions {
             'updateName',
             'updatePassword',
             'updatePassword2',
+            'updateAvatar',
             'invalidName',
             'invalidPassword',
-            'invalidSamePassword'
+            'invalidSamePassword',
+            'invalidAvatar'
 
         );
     }
     
-    addUser(name, password, password2) {
+    addUser(name, password, password2, avatar) {
         $.ajax({
             type: 'POST',
-            url: '/api/addCustomer',
+            url: '/api/signup',
             data: {
                  name: name,
                  password: password,
-                 password2: password2
+                 password2: password2,
+                 avatar: avatar
             }
         })
         .done((data) => {
