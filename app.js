@@ -31,7 +31,7 @@ app.use(require('express-formidable')({
     keepExtensions: true
 }));
 
-app.use('/', httpRouter.router);
+app.use('/api', httpRouter.router);
 
 app.listen(app.get('port'), function() {
   console.log('Express server listening on port ' + app.get('port'));

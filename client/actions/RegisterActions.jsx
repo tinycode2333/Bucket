@@ -19,21 +19,25 @@ class RegisterActions {
     }
     
     addUser(name, password, password2, avatar) {
+        var formData = new FormData();
+        console.log(avatar);
+        formData.append('avatar', avatar);
+        formData.append('name', name);
+        formData.append('password', password);
+        formData.append('password2', password2);
         $.ajax({
             type: 'POST',
             url: '/api/signup',
-            data: {
-                 name: name,
-                 password: password,
-                 password2: password2,
-                 avatar: avatar
-            }
+            data: formData,
+            processData : false,
+            dataType: 'json',
+            contentType : false
         })
         .done((data) => {
-            this.actions.addUserSuccess(data.message);
+            this.addUserSuccess(data.message);
         })
         .fail((jqXhr) => {
-            this.actions.addUserFail(jqXhr.responseJSON.message);
+            this.addUserFail(jqXhr.responseJSON.message);
         })
     }
 }

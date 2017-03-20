@@ -7,6 +7,8 @@ var userLogic = require('../logics/userLogic');
 
 exports.signup = async function (req, res) {
     var name = req.fields.name;
+    console.log(req.fields);
+    console.log(req.files);
     var avatar = req.files.avatar.path.split( path.sep ).pop();
     var password = req.fields.password;
     var password2 = req.fields.password2;
