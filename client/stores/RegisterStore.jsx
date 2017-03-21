@@ -7,7 +7,8 @@ class RegisterStore {
         this.name = '';
         this.password = '';
         this.password2 = '';
-        this.helpBlock = 'GO';
+        this.avatar = undefined;
+        this.helpBlock = 'please input your message~';
     }
 
     onAddUserSuccess(successMessage) {
@@ -35,7 +36,7 @@ class RegisterStore {
 
     onUpdateAvatar(event) {
         this.avatar = event.target.value;
-        this.helpBlock = '头像上传成功';
+        this.helpBlock = '头像加载成功';
     }
 
     onInvalidName() {

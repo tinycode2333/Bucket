@@ -54,7 +54,7 @@ class Register extends Component {
                 <div className='panel panel-info'>
                     <div className='panel-heading'>注册用户</div>
                     <div className='panel-body'>
-                        <form onSubmit={this.handleSubmit.bind(this)} enctype="multipart/form-data" >
+                        <form onSubmit={this.handleSubmit.bind(this)} encType="multipart/form-data" >
                             <div className='field required'>
                                 <label >Name</label>
                                 <input type='text' ref='nameTextField' value={this.state.name} onChange={RegisterActions.updateName} autoFocus/>
@@ -69,7 +69,7 @@ class Register extends Component {
                             </div>
                              <div className='field required'>
                                 <label >上传头像</label>
-                                <input type='file'  name="avatar" value={this.state.avatar} onChange={RegisterActions.updateAvatar}/>
+                                <input type='file' id='avatar'  name='avatar' value={this.state.avatar} onChange={RegisterActions.updateAvatar}/>
                             </div>
                             <span className='help-block'>{this.state.helpBlock}</span>
                             <button type='submit' className='btn btn-primary'>Submit</button>

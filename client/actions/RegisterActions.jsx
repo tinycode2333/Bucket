@@ -20,8 +20,7 @@ class RegisterActions {
     
     addUser(name, password, password2, avatar) {
         var formData = new FormData();
-        console.log(avatar);
-        formData.append('avatar', avatar);
+        formData.append('avatar', $("#avatar")[0].files[0]);
         formData.append('name', name);
         formData.append('password', password);
         formData.append('password2', password2);
@@ -30,7 +29,6 @@ class RegisterActions {
             url: '/api/signup',
             data: formData,
             processData : false,
-            dataType: 'json',
             contentType : false
         })
         .done((data) => {

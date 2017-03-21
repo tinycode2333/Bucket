@@ -5,9 +5,10 @@
   "main": "app.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "watch": "set NODE_ENV=development && nodemon --harmony app",
+    "watch": "set NODE_ENV=development && webpack && nodemon --harmony app",
     "dev": "webpack-dev-server --inline  --hot",
-    "build": "set NODE_ENV=development && webpack "
+    "build": "set NODE_ENV=development && webpack ",
+    "start": "nodemon --harmony app"
   },
   "repository": {
     "type": "git",
