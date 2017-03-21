@@ -19,3 +19,7 @@ exports.addUser = async function (info) {
 exports.findUser = async function (username) {
   return await  thisModel.findOneAsync({username: username});
 }
+
+exports.findUserByLogin = async function (username, password) {
+  return await  thisModel.findOneAsync({username: username, password: password});
+}

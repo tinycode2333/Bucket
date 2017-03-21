@@ -7,8 +7,6 @@ var userLogic = require('../logics/userLogic');
 
 exports.signup = async function (req, res) {
     var name = req.fields.name;
-    console.log(req.fields);
-    console.log(req.files);
     var avatar = req.files.avatar.path.split( path.sep ).pop();
     var password = req.fields.password;
     var password2 = req.fields.password2;
@@ -29,4 +27,30 @@ exports.signup = async function (req, res) {
 
     await userLogic.addUser(userInfo);
     return res.status(200).send({ message: '注册成功' });
+}
+
+exports.login = async function (req, res) {
+    var name = req.fields.name;
+    var password = req.fields.password;
+    var user = await userLogic.findUserByLogin(name, password)
+    if (!user) {
+        return res.status(400).send({ message: '用户名或密码错误' });
+    } else {
+        delete user.password;
+        req.session.user = user;
+        return res.status(200).send({ message: '登录成功' });
+    }
+}
+
+exports.checkLogin = async function (req, res) {
+    if (req.session.user) {
+        var data = {};
+        data.user = await userLogic.findUser(req.session.user.username);
+        data.user.password = undefined;
+        data.isLogin = true;
+    } else {
+        var data = {};
+        data.isLogin = false;
+    }
+    return res.status(200).send(data);
 }

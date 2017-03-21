@@ -27,10 +27,9 @@ app.use(session({
 }));
 
 app.use(require('express-formidable')({
-    uploadDir: path.join(__dirname, 'server/public/avatar'),
+    uploadDir: path.join(__dirname, 'build/avatar'),
     keepExtensions: true
 }));
-
 app.use('/api', httpRouter.router);
 
 app.listen(app.get('port'), function() {
