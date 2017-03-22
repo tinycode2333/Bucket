@@ -19,13 +19,13 @@ exports.signup = async function (req, res) {
         return res.status(400).send({ message: '该用户名已被注册' });
     }
 
-    var userInfo = {
+    var info = {
         username: name,
         password: password,
         avatar: avatar
     };
 
-    await userLogic.addUser(userInfo);
+    await userLogic.addUser(info);
     return res.status(200).send({ message: '注册成功' });
 }
 
@@ -53,4 +53,13 @@ exports.checkLogin = async function (req, res) {
         data.isLogin = false;
     }
     return res.status(200).send(data);
+}
+
+exports.logout =  function (req, res) {
+    if (req.session.user) {
+        req.session.user = undefined;
+        return res.status(200).send({ message: '注销成功' });
+    } else {
+        return res.status(400).send({ message: '没有找到登录信息' });
+    }
 }

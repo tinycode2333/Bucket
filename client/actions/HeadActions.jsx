@@ -5,7 +5,9 @@ class HeadActions {
     constructor() {
         this.generateActions(
             'findLoginSuccess',
-            'findLoginFail'
+            'findLoginFail',
+            'logoutSuccess',
+            'logoutFail'
 
         );
     }
@@ -21,6 +23,19 @@ class HeadActions {
             this.findLoginFail(jqXhr.responseJSON.message);
         })
     }
+
+    logout() {
+        $.ajax({
+            url: '/api/logout',
+        })
+        .done((data) => {
+            this.logoutSuccess(data.message);
+        })
+        .fail((jqXhr) => {
+            this.logoutFail(jqXhr.responseJSON.message);
+        })
+    }
+
 }
 
 export default alt.createActions(HeadActions);

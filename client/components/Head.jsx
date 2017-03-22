@@ -26,6 +26,10 @@ class Head extends React.Component {
     this.setState(state);
   }
 
+  handleClick() {
+    HeadActions.logout();
+  }
+
   render() {
 
     return (
@@ -33,19 +37,20 @@ class Head extends React.Component {
         <div className={styles.logo}></div>
         <div className={styles.navbar}>
           <ul>
-            <li><Link to="##">人生规划</Link></li>
+            <li><Link to="/plan">人生规划</Link></li>
             <li><Link to="##">身体管理</Link></li>
             <li><Link to="##">工作管理</Link></li>
             <li><Link to="##">情绪管理</Link></li>
-            <li><Link to="##">新闻推送</Link></li>
+            {/*<li><Link to="##">新闻推送</Link></li>*/}
           </ul>
         </div>
         <div>
           {
             this.state.isLogin ?
             <div>
-              <div className={styles.right}><Link to="/logout">登出</Link></div>
-              <img src={"/avatar/" + this.state.avatar}/>
+              <div className={styles.right}><Link onClick={this.handleClick}>登出</Link></div>
+              <div className={styles.right}>{this.state.username}</div>
+              <img src={"/img/avatar/" + this.state.avatar}/>
             </div>
              :
             <div>

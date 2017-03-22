@@ -11,17 +11,26 @@ class HeadStore {
     }
 
     onFindLoginSuccess(data) {
-        console.log(data);
-        console.log(data.user);
         this.isLogin = data.isLogin;
         this.avatar = data.user.avatar;
-        
+        this.username = data.user.username;
 
     }
 
     onFindLoginFail(errorMessage) {
         this.isLogin = false;
         alert(errorMessage);
+    }
+
+    onLogoutSuccess(successMessage) {
+        alert(successMessage);
+        window.location.href="http://localhost:3000/";
+
+    }
+
+    onLogoutFail(errorMessage) {
+        alert(errorMessage);
+        window.location.href="http://localhost:3000/";
     }
 
 

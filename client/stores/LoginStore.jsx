@@ -11,7 +11,7 @@ class LoginStore {
 
     onGetUserSuccess(successMessage) {
         alert(successMessage);
-        window.location.href="localhost:3000/";
+        window.location.href="http://localhost:3000/";
     }
 
     onGetUserFail(errorMessage) {
