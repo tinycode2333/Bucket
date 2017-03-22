@@ -6,7 +6,7 @@ class PlanStore {
         this.bindActions(PlanActions);
         this.name = '';
         this.reason = '';
-        this.goallist = {};
+        this.goalList = {};
         this.helpBlock = '';
     }
 

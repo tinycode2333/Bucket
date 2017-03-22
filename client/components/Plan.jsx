@@ -26,42 +26,43 @@ class Plan extends Component {
     handleSubmit(event) {
         event.preventDefault();
         
-        var name = this.state.name;
-        var password = this.state.password;
-        if (!name) {
-            PlanActions.invalidName();
-            this.refs.nameTextField.focus();
-        } else if (!password) {
-            PlanActions.invalidPassword();
-        } 
+        // var name = this.state.name;
+        // var password = this.state.password;
+        // if (!name) {
+        //     PlanActions.invalidName();
+        //     this.refs.nameTextField.focus();
+        // } else if (!password) {
+        //     PlanActions.invalidPassword();
+        // } 
 
-        if (name && password) {
-            PlanActions.getUser(name, password);
-        }
+        // if (name && password) {
+        //     PlanActions.getUser(name, password);
+        // }
     }
     
     render() {
         return (
-            <div className={styles.plan}>
+            <div className={styles.plan}>223333
                 <div className='panel panel-success'>
                     <div className='panel-heading'>人生规划</div>
                     <div className='panel-body'>
                         <form onSubmit={this.handleSubmit.bind(this)}>
-                            <h2>添加新目标</h2>
+                            <h3>添加新目标</h3>
                             <div className='field required'>
-                                <label >目标名称</label>
+                                <label >目标名称:</label>
                                 <input type='text'  value={this.state.name} onChange={PlanActions.updateName} />
                             </div>
                             <div className='field'>
-                                <label >说服自己做的理由</label>
+                                <label >说服自己做的理由:</label>
                                 <input type='textarea'  value={this.state.reason} onChange={PlanActions.updateReason}/>
                             </div>
                             <span className='help-block'>{this.state.helpBlock}</span>
                             <button type='submit' className='btn btn-primary'>Submit</button>
                         </form>
                         <div>
-                            <h2>现有目标</h2>
-                            <ul>
+                            <h3>现有目标</h3>
+                            <ul></ul>
+                            {/*<ul>
                                 {
                                     this.state.goalList.map((item, index) => {
                                         return (
@@ -69,7 +70,7 @@ class Plan extends Component {
                                         )
                                     })
                                 }
-                            </ul>
+                            </ul>*/}
                         </div>
                     </div>
                 </div>

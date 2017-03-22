@@ -15,6 +15,6 @@ exports.addGoal = async function (goal) {
   await thisModel.createAsync(goal);
 };
 
-exports.getAllGoal = async function () {
-  await thisModel.createAsync(goal);
+exports.getAllGoal = async function (username) {
+  await thisModel.findOneAsync({username: username});
 };
