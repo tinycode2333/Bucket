@@ -6,12 +6,12 @@ class PlanStore {
         this.bindActions(PlanActions);
         this.name = '';
         this.reason = '';
-        this.goalList = {};
+        this.goalList ={};
         this.helpBlock = '';
     }
 
     onAddGoalSuccess(data) {
-        this.goallist = data.goallist;
+        this.goallist = data.goals;
         this.helpBlock = data.message;
     }
 
@@ -25,8 +25,8 @@ class PlanStore {
     }
 
     onUpdateReason(event) {
-        this.password = event.target.value;
-        this.helpBlock = '';
+        this.reason = event.target.value;
+        this.helpBlock = this.reason;
     }
 
     onInvalidName() {

@@ -5,7 +5,7 @@ module.exports = {
   entry: {
     main: __dirname + "/client/main.js",
     adm: __dirname + "/client/adm.js",
-    vendors: ['jquery']
+    vendors: ['jquery', 'lodash']
   },
 
   output: {

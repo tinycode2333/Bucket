@@ -3,6 +3,7 @@ import PlanStore from '../stores/PlanStore';
 import PlanActions from '../actions/PlanActions'
 import classNames from 'classnames';
 import styles from './Plan.css';
+import _ from 'lodash';
 
 class Plan extends Component {
     constructor(props, context) {
@@ -25,24 +26,27 @@ class Plan extends Component {
 
     handleSubmit(event) {
         event.preventDefault();
-        
-        // var name = this.state.name;
-        // var password = this.state.password;
-        // if (!name) {
-        //     PlanActions.invalidName();
-        //     this.refs.nameTextField.focus();
-        // } else if (!password) {
-        //     PlanActions.invalidPassword();
-        // } 
+        console.log(2233333);
+        var name = this.state.name;
+        var reason = this.state.reason;
+        if (!name) {
+            PlanActions.invalidName();
+        } 
 
-        // if (name && password) {
-        //     PlanActions.getUser(name, password);
-        // }
+        if (name && reason) {
+            console.log(2233333);
+            PlanActions.addGoal(name, reason);
+        }
     }
     
     render() {
+        var goalListRender = _.map(this.state.goalList, function (item, index, array) {
+                                return (
+                                    <li>{item.goalname}</li>
+                                );
+                            });
         return (
-            <div className={styles.plan}>223333
+            <div className={styles.plan}>
                 <div className='panel panel-success'>
                     <div className='panel-heading'>人生规划</div>
                     <div className='panel-body'>
@@ -54,23 +58,14 @@ class Plan extends Component {
                             </div>
                             <div className='field'>
                                 <label >说服自己做的理由:</label>
-                                <input type='textarea'  value={this.state.reason} onChange={PlanActions.updateReason}/>
+                                <textarea rows="5" cols="50"  value={this.state.reason} onChange={PlanActions.updateReason}></textarea>
                             </div>
                             <span className='help-block'>{this.state.helpBlock}</span>
                             <button type='submit' className='btn btn-primary'>Submit</button>
                         </form>
                         <div>
                             <h3>现有目标</h3>
-                            <ul></ul>
-                            {/*<ul>
-                                {
-                                    this.state.goalList.map((item, index) => {
-                                        return (
-                                            <li>{item.goalname}</li>
-                                        )
-                                    })
-                                }
-                            </ul>*/}
+                            <ul>{goalListRender}</ul>   
                         </div>
                     </div>
                 </div>

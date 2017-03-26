@@ -7,6 +7,6 @@ exports.addGoal = async function (goal) {
 }
 
 exports.getAllGoal = async function (username) {
-    await goalModel.getAllGoal(username);
+    return await goalModel.getAllGoal(username);
 }
 

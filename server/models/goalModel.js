@@ -3,6 +3,7 @@
 var mongoose = require('../lib/mongodb_helper').mongoose;
 
 var schema = new mongoose.Schema({
+  username: String,
   goalname: String,
   goalreason: String
 });
@@ -16,5 +17,5 @@ exports.addGoal = async function (goal) {
 };
 
 exports.getAllGoal = async function (username) {
-  await thisModel.findOneAsync({username: username});
+  return await thisModel.findAsync({username: username});
 };
