@@ -6,16 +6,42 @@ class PlanStore {
         this.bindActions(PlanActions);
         this.name = '';
         this.reason = '';
-        this.goalList ={};
+        this.goalList = [];
         this.helpBlock = '';
     }
 
+    onFindGoalSuccess(data) {
+        this.goalList = data.goals;
+    }
+
+    onFindGoalFail(errorMessage) {
+        this.helpBlock = errorMessage;
+    }
+
     onAddGoalSuccess(data) {
-        this.goallist = data.goals;
+        this.goalList = data.goals;
         this.helpBlock = data.message;
     }
 
     onAddGoalFail(errorMessage) {
+        this.helpBlock = errorMessage;
+    }
+
+    onDeleteGoalSuccess(data) {
+        this.goalList = data.goals;
+        this.helpBlock = data.message;
+    }
+
+    onDeleteGoalFail(errorMessage) {
+        this.helpBlock = errorMessage;
+    }
+
+    onFinishGoalSuccess(data) {
+        this.goalList = data.goals;
+        this.helpBlock = data.message;
+    }
+
+    onFinishGoalFail(errorMessage) {
         this.helpBlock = errorMessage;
     }
 
@@ -26,7 +52,7 @@ class PlanStore {
 
     onUpdateReason(event) {
         this.reason = event.target.value;
-        this.helpBlock = this.reason;
+        this.helpBlock = '';
     }
 
     onInvalidName() {

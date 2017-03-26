@@ -34,13 +34,13 @@ class Head extends React.Component {
 
     return (
       <header className={styles.header}>
-        <div className={styles.logo}></div>
+        <Link to="/"><div className={styles.logo}></div></Link>
         <div className={styles.navbar}>
           <ul>
-            <li><Link to="/plan">人生规划</Link></li>
+            <Link to="/plan"><li>人生规划</li></Link>
             <li><Link to="##">身体管理</Link></li>
             <li><Link to="##">工作管理</Link></li>
-            <li><Link to="##">情绪管理</Link></li>
+            <Link to="/emotion"><li>情绪管理</li></Link>
             {/*<li><Link to="##">新闻推送</Link></li>*/}
           </ul>
         </div>

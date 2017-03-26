@@ -13,6 +13,11 @@ router.get('/logout', loginController.logout);
 router.get('/isLogin', loginController.checkLogin);
 
 //人生规划
+router.get('/findGoal', goalController.findGoal)
 router.post('/addGoal',  goalController.addGoal);
+router.post('/deleteGoal',  goalController.deleteGoal);
+router.post('/finishGoal',  goalController.finishGoal);
+
+
 
 exports.router = router;

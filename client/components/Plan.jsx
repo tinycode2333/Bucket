@@ -3,7 +3,6 @@ import PlanStore from '../stores/PlanStore';
 import PlanActions from '../actions/PlanActions'
 import classNames from 'classnames';
 import styles from './Plan.css';
-import _ from 'lodash';
 
 class Plan extends Component {
     constructor(props, context) {
@@ -14,6 +13,8 @@ class Plan extends Component {
 
     componentDidMount() {
         PlanStore.listen(this.onChange);
+        PlanActions.findGoal();
+        this.setState(state)
     }
 
     componentWillUnmount() {
@@ -26,7 +27,6 @@ class Plan extends Component {
 
     handleSubmit(event) {
         event.preventDefault();
-        console.log(2233333);
         var name = this.state.name;
         var reason = this.state.reason;
         if (!name) {
@@ -34,15 +34,17 @@ class Plan extends Component {
         } 
 
         if (name && reason) {
-            console.log(2233333);
             PlanActions.addGoal(name, reason);
         }
     }
     
     render() {
-        var goalListRender = _.map(this.state.goalList, function (item, index, array) {
+        var goalListRender = this.state.goalList.map(function (item, index, array) {
                                 return (
-                                    <li>{item.goalname}</li>
+                                    <li className={item.isFinished ? styles.finish : ''}>{item.goalname} 
+                                        <button className='btn btn-success' onClick={PlanActions.deleteGoal.bind(this, item._id)}>delete</button>
+                                        <button className='btn btn-success'onClick={PlanActions.finishGoal.bind(this, item._id)}>finish</button>
+                                    </li>
                                 );
                             });
         return (

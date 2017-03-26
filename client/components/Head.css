@@ -34,7 +34,7 @@
     cursor: pointer;
 }
 
-.navbar li a {
+.navbar a {
     text-decoration: none;
     color: white;
 }
