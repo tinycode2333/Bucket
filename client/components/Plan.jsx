@@ -63,7 +63,7 @@ class Plan extends Component {
                                 <textarea rows="5" cols="50"  value={this.state.reason} onChange={PlanActions.updateReason}></textarea>
                             </div>
                             <span className='help-block'>{this.state.helpBlock}</span>
-                            <button type='submit' className='btn btn-primary'>Submit</button>
+                            <button type='submit' className='btn btn-success'>Submit</button>
                         </form>
                         <div>
                             <h3>现有目标</h3>

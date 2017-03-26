@@ -38,8 +38,8 @@ class Head extends React.Component {
         <div className={styles.navbar}>
           <ul>
             <Link to="/plan"><li>人生规划</li></Link>
-            <li><Link to="##">身体管理</Link></li>
-            <li><Link to="##">工作管理</Link></li>
+            <Link to="##"><li>身体管理</li></Link>
+            <Link to="##"><li>工作管理</li></Link>
             <Link to="/emotion"><li>情绪管理</li></Link>
             {/*<li><Link to="##">新闻推送</Link></li>*/}
           </ul>
