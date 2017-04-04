@@ -48,7 +48,7 @@ class Emotion extends Component {
                                 <source src="/audio/01.mp3" type="audio/mpeg" />
                                 <source src="/audio/01.ogg" type="audio/ogg" />
                                 Your browser does not support this audio format.
-                            </audio> 
+                            </audio>
                         </div>
                         <form onSubmit={this.handleSubmit.bind(this)}>
                             <h3>添加情绪</h3>

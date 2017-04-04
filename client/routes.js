@@ -6,7 +6,8 @@ import Register from './components/Register';
 import Login from './components/Login';
 import Plan from './components/Plan';
 import Emotion from './components/Emotion';
-
+import Work from './components/Work';
+import Health from './components/Health';
 
 
 export default (
@@ -16,5 +17,7 @@ export default (
     <Route path='/login' component={Login} />
     <Route path='/plan' component={Plan} />
     <Route path='/emotion' component={Emotion} />
+    <Route path='/work' component={Work} />
+    <Route path='/health' component={Health} />
   </Route>
 );

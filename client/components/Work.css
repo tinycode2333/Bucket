@@ -1,0 +1,32 @@
+.work {
+    width: 800px;
+    margin: 90px auto;
+}
+
+.work label {
+    display: block;
+}
+
+.work ul li {
+    list-style-type: decimal-leading-zero;
+    margin: 10px 20px;
+}
+
+.finish {
+    text-decoration: line-through;
+}
+
+.work ul li button:first-child {
+    margin-left: 50px;
+    margin-right: 15px;
+}
+
+.work button {
+    margin-right: 20px;
+}
+
+.tomatoTime {
+    font-size: 50px;
+    color: gold;
+    padding-left: 85px;
+}
