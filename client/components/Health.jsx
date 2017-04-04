@@ -12,9 +12,9 @@ class Health extends React.Component {
 
     return (
       <div className={styles.health}>
-          <Link to="/plan"><div className={styles.bmi}>身高体重记录</div></Link>
-          <Link to="/plan"><div className={styles.food}>饮食记录</div></Link>
-          <Link to="/plan"><div className={styles.sport}>运动记录</div></Link>
+          <Link to="/health/BMI"><div className={styles.bmi}>身高体重记录</div></Link>
+          <Link to="/health/food"><div className={styles.food}>饮食记录</div></Link>
+          <Link to="/health/sport"><div className={styles.sport}>运动记录</div></Link>
       </div>
     );
   }
