@@ -4,7 +4,6 @@ var HtmlWebpackPlugin = require('html-webpack-plugin');
 module.exports = {
   entry: {
     main: __dirname + "/client/main.js",
-    adm: __dirname + "/client/adm.js",
     vendors: ['jquery', 'lodash', 'moment']
   },
 
@@ -63,14 +62,6 @@ module.exports = {
       template: __dirname + "/client/tmpl/main.tmpl.html",
       filename: 'index.html',
       chunks: ['main', 'vendors'],
-      inject: 'body'
-    }),
-
-    new HtmlWebpackPlugin({
-      title: 'Hello adm',
-      template: __dirname + "/client/tmpl/adm.tmpl.html",
-      filename: 'adm.html',
-      chunks: ['adm', 'vendors'],
       inject: 'body'
     })
 

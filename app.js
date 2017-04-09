@@ -18,7 +18,7 @@ app.use(express.static(path.join(__dirname, 'build')));
 app.use(session({
     name: config.session.key,
     secret: config.session.secret,
-    cookie: {
+    cookie: { 
         maxAge: config.session.maxAge
     },
     store: new MongoStore({
