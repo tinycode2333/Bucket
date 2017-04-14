@@ -67,7 +67,10 @@ class Register extends Component {
                                 <label >Password Again</label>
                                 <input type='password'  value={this.state.password2} onChange={RegisterActions.updatePassword2}/>
                             </div>
-
+                            <div className='field required'>
+                                 <label >上传头像</label>
+                                 <input type='file' id='avatar'  name='avatar' value={this.state.avatar} onChange={RegisterActions.updateAvatar}/>
+                             </div>
                             <span className='help-block'>{this.state.helpBlock}</span>
                             <button type='submit' className='btn btn-primary'>Submit</button>
                         </form>
