@@ -1,12 +1,14 @@
-.homeBody {
+.bgpic {
+    padding-top: 80px;
     position: absolute;
     height: 100%;  
     width: 100%;  
-    top: 80px;  
+    position: absolute;  
+    top: 0;  
     bottom: 0;   
-    z-index: 0;  
+    z-index: -1;  
     overflow:hidden; 
     word-break:break-all;
-    background: url("../images/home.jpg") no-repeat center center;
+    background: url("../images/bg.jpg") no-repeat center center;
     background-size:100%;
 }
